@@ -2,23 +2,20 @@
 
 ## 🚀 Overview
 
-This project analyzes the relationship between **Bitcoin market sentiment (Fear & Greed Index)** and **trader performance** using over **200,000+ real trading records** from Hyperliquid.
+This project analyzes Hyperliquid historical trading data alongside the Bitcoin Fear & Greed Index to understand how market sentiment influences trader behavior and performance.
 
-The goal is to uncover how market psychology influences trading behavior, profitability, and risk.
-
+The analysis combines over 211,000 real trades with sentiment data to evaluate profitability, risk, and behavioral patterns across different market regimes.
 ---
+##🎯 Project Goal
 
-## 🎯 Objective
+The primary objective is to answer key questions:
 
-To investigate how different market sentiment regimes impact:
-
-* Trader profitability (PnL)
-* Trading activity
-* Risk and volatility
-* Behavioral patterns
-
+Do traders earn more during Fear or Greed?
+How does win rate vary across sentiment regimes?
+Are traders more aggressive in Greed markets?
+Which traders are consistently profitable?
+Which assets perform best under different market conditions?
 ---
-
 ## 📂 Datasets Used
 
 1. **Hyperliquid Historical Trader Data**
@@ -56,6 +53,12 @@ To investigate how different market sentiment regimes impact:
 * Time-of-day profitability analysis
 
 ---
+##📈 Results Summary
+Sentiment	Trades	Total PnL	Avg PnL	Win Rate	Avg Size USD
+Fear	133,871	6,699,925.19	50.05	41.5%	5,259.98
+Neutral	7,141	158,742.38	22.23	31.7%	3,058.85
+Greed	63,250	3,261,325.88	51.56	40.5%	6,731.68
+Extreme Greed	6,962	176,965.49	25.42	49.0%	5,660.27
 
 ## 📊 Key Insights
 
@@ -138,7 +141,37 @@ Understanding sentiment-driven market dynamics can help traders:
 * Reduce emotional decision-making
 * Manage risk more effectively
 * Improve long-term profitability
+---
+##📦 Outputs
+sentiment_summary.csv → Aggregated statistics
+final_output.csv → Full merged dataset (generated locally)
+chart1–chart10.png → Visual analysis outputs
+---
 
+##📊 Visualizations
+Average PnL by sentiment
+Win rate comparison
+Trade count distribution
+Profit vs loss breakdown
+Risk (volatility) analysis
+Top traders performance
+Daily trend analysis
+Hour vs sentiment heatmap
+
+---
+##🧠 Technical Highlights
+Time-aware merge using merge_asof
+Robust handling of missing/variant column names
+Defensive design for optional fields (e.g., leverage)
+Scalable analysis for large datasets (200K+ rows)
+
+---
+##🔮 Future Improvements
+Convert analysis into Jupyter Notebook for storytelling
+Modularize code into reusable components
+Add automated testing
+Extend analysis with sentiment-based trading strategies
+Generate PDF report / dashboard
 ---
 
 ## 👨‍💻 Author
