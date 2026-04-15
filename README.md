@@ -141,6 +141,7 @@ A detailed professional report is included:
 
 This report provides consulting-style insights on trader behavior, risk, and strategy based on market sentiment.
 
+---
 
 ## ▶️ How to Run
 
