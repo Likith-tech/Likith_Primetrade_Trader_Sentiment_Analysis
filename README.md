@@ -2,29 +2,39 @@
 
 ## 🚀 Overview
 
-This project analyzes Hyperliquid historical trading data alongside the Bitcoin Fear & Greed Index to understand how market sentiment influences trader behavior and performance.
+This project analyzes **Hyperliquid historical trading data** alongside the **Bitcoin Fear & Greed Index** to understand how market sentiment influences trader behavior and performance.
 
-The analysis combines over 211,000 real trades with sentiment data to evaluate profitability, risk, and behavioral patterns across different market regimes.
+The analysis combines **211,000+ real trades** with sentiment data to evaluate profitability, risk, and behavioral patterns across different market conditions.
+
 ---
-##🎯 Project Goal
 
-The primary objective is to answer key questions:
+## 🎯 Project Goal
 
-Do traders earn more during Fear or Greed?
-How does win rate vary across sentiment regimes?
-Are traders more aggressive in Greed markets?
-Which traders are consistently profitable?
-Which assets perform best under different market conditions?
+The primary objective is to answer the following questions:
+
+* Do traders earn more during **Fear or Greed**?
+* How does **win rate vary** across sentiment regimes?
+* Are traders more **aggressive in Greed markets**?
+* Which traders are **consistently profitable**?
+* Which assets perform best under different market conditions?
+
 ---
+
 ## 📂 Datasets Used
 
-1. **Hyperliquid Historical Trader Data**
+### 1. Hyperliquid Historical Trader Data
 
-   * Trade-level data including execution price, size, PnL, direction, etc.
+* Trade-level dataset
+* Includes execution price, trade size, PnL, direction, etc.
 
-2. **Bitcoin Fear & Greed Index**
+### 2. Bitcoin Fear & Greed Index
 
-   * Daily sentiment classification (Fear, Neutral, Greed, Extreme levels)
+* Daily sentiment classification:
+
+  * Fear
+  * Neutral
+  * Greed
+  * Extreme levels
 
 ---
 
@@ -35,46 +45,52 @@ Which assets perform best under different market conditions?
 * Converted timestamps to datetime format
 * Cleaned missing and inconsistent values
 * Normalized column names
-* Created derived features (profit flags, percentage returns)
+* Created derived features (profit flags, returns)
 
 ### 🔹 Data Integration
 
-* Merged datasets using **asof merge** to align trades with nearest prior sentiment
-* Ensured 100% sentiment coverage for trades
+* Merged datasets using **`merge_asof`**
+* Aligned each trade with the **nearest prior sentiment**
+* Achieved **100% sentiment coverage**
 
 ### 🔹 Analysis Performed
 
 * Average PnL by sentiment
 * Win-rate analysis
-* Trade activity distribution
+* Trade distribution analysis
 * Risk (PnL volatility) analysis
-* Trader-level performance and consistency (Sharpe-like score)
-* Symbol-level performance breakdown
+* Trader-level performance (Sharpe-like score)
+* Symbol-level performance
 * Time-of-day profitability analysis
 
 ---
-##📈 Results Summary
-Sentiment	Trades	Total PnL	Avg PnL	Win Rate	Avg Size USD
-Fear	133,871	6,699,925.19	50.05	41.5%	5,259.98
-Neutral	7,141	158,742.38	22.23	31.7%	3,058.85
-Greed	63,250	3,261,325.88	51.56	40.5%	6,731.68
-Extreme Greed	6,962	176,965.49	25.42	49.0%	5,660.27
+
+## 📈 Results Summary
+
+| Sentiment     |  Trades | Total PnL | Avg PnL | Win Rate | Avg Size (USD) |
+| ------------- | ------: | --------: | ------: | -------: | -------------: |
+| Fear          | 133,871 | 6,699,925 |   50.05 |    41.5% |       5,259.98 |
+| Neutral       |   7,141 |   158,742 |   22.23 |    31.7% |       3,058.85 |
+| Greed         |  63,250 | 3,261,325 |   51.56 |    40.5% |       6,731.68 |
+| Extreme Greed |   6,962 |   176,965 |   25.42 |    49.0% |       5,660.27 |
+
+---
 
 ## 📊 Key Insights
 
 * 📈 Traders achieve highest profitability during **Greed phases**
 * 😨 Trading activity peaks during **Fear**, indicating panic-driven behavior
 * ⚠️ **Extreme Greed reduces profitability**, suggesting overconfidence
-* 📉 Losses exceed profits in Fear conditions
-* 📊 Greed markets show **highest volatility (risk)**
-* 🏆 A small number of traders dominate total profits
+* 📉 Losses tend to dominate during Fear conditions
+* 📊 Greed markets show **higher volatility (risk)**
+* 🏆 A small group of traders contributes the majority of total profits
 * ⏱️ Trading performance varies significantly across different times of day
 
 ---
 
-## 📈 Visualizations
+## 📊 Visualizations
 
-The project generates **10+ professional charts**, including:
+The project generates **10+ charts**, including:
 
 * Average PnL by sentiment
 * Win rate comparison
@@ -82,8 +98,8 @@ The project generates **10+ professional charts**, including:
 * Profit vs loss breakdown
 * Risk (volatility) analysis
 * Top traders performance
-* Time-series trend analysis
-* Heatmap of trading performance
+* Time-series trends
+* Heatmap of trading activity
 
 ---
 
@@ -101,7 +117,7 @@ Likith_Primetrade_Trader_Sentiment_Analysis/
 ├── README.md
 ```
 
-> ⚠️ Note: `final_output.csv` (~60MB) is not included due to size constraints.
+> ⚠️ Note: `final_output.csv` (~60MB) is excluded due to size.
 > It can be generated by running the script.
 
 ---
@@ -129,49 +145,50 @@ python analyze_trader_sentiment.py
 
 ## 🧠 Conclusion
 
-Market sentiment plays a critical role in shaping trader behavior and performance.
-While Greed phases offer higher profitability, Fear phases drive excessive trading and losses, highlighting the importance of disciplined and data-driven trading strategies.
+Market sentiment plays a significant role in shaping trading behavior.
+
+* **Greed phases** → Higher profitability
+* **Fear phases** → Increased trading activity & emotional decisions
+
+This highlights the importance of **discipline, risk management, and data-driven strategies**.
 
 ---
 
 ## 💡 Key Takeaway
 
-Understanding sentiment-driven market dynamics can help traders:
+Understanding sentiment-driven market dynamics helps traders:
 
 * Reduce emotional decision-making
-* Manage risk more effectively
-* Improve long-term profitability
----
-##📦 Outputs
-sentiment_summary.csv → Aggregated statistics
-final_output.csv → Full merged dataset (generated locally)
-chart1–chart10.png → Visual analysis outputs
----
-
-##📊 Visualizations
-Average PnL by sentiment
-Win rate comparison
-Trade count distribution
-Profit vs loss breakdown
-Risk (volatility) analysis
-Top traders performance
-Daily trend analysis
-Hour vs sentiment heatmap
+* Improve risk management
+* Enhance long-term profitability
 
 ---
-##🧠 Technical Highlights
-Time-aware merge using merge_asof
-Robust handling of missing/variant column names
-Defensive design for optional fields (e.g., leverage)
-Scalable analysis for large datasets (200K+ rows)
+
+## 📦 Outputs
+
+* `sentiment_summary.csv` → Aggregated statistics
+* `final_output.csv` → Full merged dataset
+* `chart1–chart10.png` → Visual insights
 
 ---
-##🔮 Future Improvements
-Convert analysis into Jupyter Notebook for storytelling
-Modularize code into reusable components
-Add automated testing
-Extend analysis with sentiment-based trading strategies
-Generate PDF report / dashboard
+
+## 🧠 Technical Highlights
+
+* Time-aware merging using `merge_asof`
+* Robust handling of missing/variant columns
+* Defensive coding for optional fields (e.g., leverage)
+* Scalable processing for large datasets (200K+ rows)
+
+---
+
+## 🔮 Future Improvements
+
+* Convert into Jupyter Notebook for storytelling
+* Modularize code into reusable components
+* Add automated testing
+* Build sentiment-based trading strategies
+* Create dashboard / PDF report
+
 ---
 
 ## 👨‍💻 Author
